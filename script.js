@@ -1,4 +1,4 @@
-var velocity = 0.9;
+var velocity = 1;
 
 /*TODO Animate text as it appears on the screen*/
 
