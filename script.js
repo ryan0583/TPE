@@ -30,7 +30,7 @@ function update()
 
       var newPos = Math.round((top - 60 - winTop) * velocity);
 
-      $(this).css('backgroundPosition', '100% ' + newPos +  'px');
+      /*$(this).css('backgroundPosition', '100% ' + newPos +  'px');*/
       $(this).css('backgroundSize', 'auto ' + Math.round(0.5 * winHeight) + 'px');
       /*$(this).css('height', Math.round(0.3 * winHeight) + 'px');*/
       /*$(this).css('padding-top', Math.round(0.1 * winHeight) + 'px');*/
