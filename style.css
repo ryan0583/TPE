@@ -1,0 +1,204 @@
+*
+{
+  margin: 0;
+  padding: 0;
+}
+
+/*padding needs to die!!!*/
+h1
+{
+  margin: 0;
+  /*padding-left: 3%;*/
+  z-index: -1 !important;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+html, body
+{
+  height: 100%;
+}
+
+body
+{
+  background-image: url("img/princeflowers.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+footer
+{
+  background: rgba(204, 204, 204, 0.5);
+}
+
+.logo
+{
+  background-color: #230440;
+  background-image: url("img/princeExp.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+  height: calc(100% - 50px);
+}
+
+.navbar-inverse
+{
+  background-color: black;
+  box-shadow: 0 9px 30px black, 0 -9px 30px black;
+  opacity: 0.9;
+  position: absolute; /*This is to prevent pushing the reset of the content down when expanding the collapsed menu*/
+  width: 100%;
+  font-family: 'Spectral SC', serif;
+}
+
+.content, .shadow
+{
+  box-shadow: -9px -9px 30px black, 9px 9px 30px black;
+}
+
+.dark
+{
+  background-color: #12120EDD;
+}
+
+.black
+{
+  color: black;
+}
+
+blockquote
+{
+  color: white;
+  border: none;
+  padding-left: 5%;
+  padding-right: 10%;
+  padding-top: 15%;
+  font-family: 'Spectral SC', serif;
+  font-size: 3vw;
+}
+
+.bit-widget-initializer
+{
+  font-family: 'Spectral SC', serif;
+}
+
+p
+{
+  font-family: 'Spectral SC', serif;
+  color: white;
+  padding-top: 0;
+  padding-bottom: 5%;
+  margin: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 2.5vw;
+}
+
+.title
+{
+  font-family: 'Spectral SC', serif;
+	font-size: 6vw;
+	font-style: normal;
+	font-weight: 300;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: black;
+  height: 30%;
+  background-color: white;
+}
+
+.title-about
+{
+  background-image: url("img/Dale1.jpg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-attachment: fixed;
+  background-size: contain;
+  margin-top: 75px; /*Add top margin to prevent nav bar overlapping with conent.*/
+}
+
+.sticky
+{
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.invert
+{
+  filter: invert(100%);
+}
+
+.navsymbol
+{
+  padding-top: 5px;
+  padding-left: 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+}
+
+div.socialMedia
+{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: #23044055;
+  width: 100%;
+  box-shadow: 0 9px 30px black;
+}
+
+img.socialMedia
+{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.contentimg
+{
+  padding-top: 15%;
+  margin-bottom: 5%;
+}
+
+.pad10pc
+{
+  padding-top: 10%;
+}
+
+.big
+{
+  font-size: 3vw;
+  padding-bottom: 0;
+}
+
+.negativemarg
+{
+  margin-top: -5%;
+}
+
+.row-no-padding > [class*="col-"]
+{
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/*size the video with the window size*/
+.videoWrapper
+{
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
