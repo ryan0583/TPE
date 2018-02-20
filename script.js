@@ -51,7 +51,7 @@ function update()
   }
 
   /*resize footer images*/
-  function resizeFooterImages()
+  /*function resizeFooterImages()
   {
     $(".imgFooter").each(function()
     {
@@ -70,7 +70,7 @@ function update()
 
       $(this).attr('width', height + 'px');
     });
-  }
+  }*/
 };
 
 $(".socialMedia").mouseover(function()
