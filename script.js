@@ -17,7 +17,7 @@ function update()
 
   stickNavBarToTop();
 
-  resizeFooterImages();
+  //resizeFooterImages();
 
   /*move the background image of the section headers a bit, and resize them based on screen height*/
   /*function alterHeadingBackgrounds()

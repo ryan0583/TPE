@@ -38,7 +38,7 @@ footer
   display: none;
 }
 
-.logo
+#home
 {
   background-color: rgb(35,4,64);
   background-image: url("img/princeExp.jpg");
@@ -46,6 +46,7 @@ footer
   background-position: center;
   background-attachment: fixed;
   background-size: contain;
+  height: 90%;
   height: calc(100% - 50px);
 }
 
@@ -133,11 +134,6 @@ p
   position: fixed;
   top: 0;
   width: 100%
-}
-
-.invert
-{
-  filter: invert(100%);
 }
 
 .navsymbol
