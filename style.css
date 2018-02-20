@@ -159,14 +159,14 @@ img.socialMedia
 {
   margin-left: 10px;
   margin-right: 10px;
-  height: 8vh;
+  height: 3.5vw;
 }
 
 .imgFooter
 {
-  min-height: 20px;
-  max-height: 100px;
-  height: 12vh;
+  min-height: 30px;
+  max-height: 70px;
+  height: 12vw;
 }
 
 .contentimg
