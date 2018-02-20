@@ -35,7 +35,7 @@ footer
 
 .logo
 {
-  background-color: #230440;
+  background-color: rgb(35,4,64);
   background-image: url("img/princeExp.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -61,7 +61,7 @@ footer
 
 .dark
 {
-  background-color: #12120EDD;
+  background-color: rgba(18,18,14,0.8);
 }
 
 .black
@@ -145,7 +145,7 @@ div.socialMedia
 {
   padding-top: 20px;
   padding-bottom: 10px;
-  background-color: #23044055;
+  background-color: rgba(35,4,64,0.3);
   width: 100%;
   box-shadow: 0 9px 30px black;
 }
