@@ -13,16 +13,16 @@ function update()
   var winWidth = $(window).width();
   var navBarTop = winHeight - 50;
 
-  alterHeadingBackgrounds();
+  //alterHeadingBackgrounds();
 
   stickNavBarToTop();
 
   resizeFooterImages();
 
   /*move the background image of the section headers a bit, and resize them based on screen height*/
-  function alterHeadingBackgrounds()
+  /*function alterHeadingBackgrounds()
   {
-    $('.img-scroll').each(function()
+    $('.title-about').each(function()
     {
       var thisOffset = $(this).offset();
       var top = thisOffset.top;
@@ -30,12 +30,12 @@ function update()
 
       var newPos = Math.round((top - 60 - winTop) * velocity);
 
-      /*$(this).css('backgroundPosition', '100% ' + newPos +  'px');*/
-      $(this).css('backgroundSize', 'auto ' + Math.round(0.5 * winHeight) + 'px');
-      /*$(this).css('height', Math.round(0.3 * winHeight) + 'px');*/
-      /*$(this).css('padding-top', Math.round(0.1 * winHeight) + 'px');*/
+      //$(this).css('backgroundPosition', '100% ' + newPos +  'px');
+      //$(this).css('backgroundSize', 'auto ' + Math.round(0.2 * winHeight) + 'px');
+      //$(this).css('height', Math.round(0.3 * winHeight) + 'px');
+      //$(this).css('padding-top', Math.round(0.1 * winHeight) + 'px');
     });
-  }
+  }*/
 
   /*stick the navbar to the top of the window*/
   function stickNavBarToTop()
