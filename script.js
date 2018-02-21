@@ -94,7 +94,7 @@ $(document).ready(function()
       $('#home').css('background-image', newBackgroundImage);
   }
 
-  $('#home').on('swipeleft', imageUp);
+  $('#home').on('swiperight', imageUp);
 
   $('#right').click(imageUp);
 
