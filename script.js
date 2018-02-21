@@ -109,6 +109,23 @@ $(document).ready(function()
       $('#home').css('background-image', newBackgroundImage);
   }*/
 
+  /*$(".carousel-control").click(function()
+  {
+    var height = $('.carousel-inner').css('height');
+    $('.carousel-inner > .item > img').css('max-height', height);
+    $('.carousel-inner > .item > img').css('min-height', height);
+  });*/
+
+  $(".carousel").swipe(
+  {
+    swipe: function(event, direction, distance, duration, fingerCount, fingerData)
+    {
+      if (direction == 'left') $(this).carousel('next');
+      if (direction == 'right') $(this).carousel('prev');
+    },
+    allowPageScroll:"vertical"
+  });
+
   $(".socialMedia").mouseover(function()
   {
     var id = $(this).attr('id');

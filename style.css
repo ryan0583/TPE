@@ -51,7 +51,7 @@ footer
 
 .carousel .item
 {
-    max-height: 100%; /* Prevent carousel from being distorted if for some reason image doesn't load */
+    max-height: 100%;
 }
 
 .carousel .item img
@@ -61,8 +61,11 @@ footer
 
 .carousel-inner > .item > img
 {
+  /*width: 100%;
   height: 90vh;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 50px);*/
+  max-height: 90vh;
+  max-height: calc(100vh - 50px);
 }
 
 .navbar-inverse
