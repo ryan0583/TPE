@@ -2,7 +2,7 @@ var velocity = 1;
 
 var backgroundImage = 0;
 var minBackgroundImage = 0;
-var maxBackgroundImage = 9;
+var maxBackgroundImage = 10;
 
 /*TODO Animate text as it appears on the screen*/
 
