@@ -79,7 +79,7 @@ function update()
 
 $(document).ready(function()
 {
-  $('#home').on('swipeleft', imageDown);
+  /*$('#home').on('swipeleft', imageDown);
 
   $('#left').click(imageDown);
 
@@ -107,7 +107,7 @@ $(document).ready(function()
       }
       var newBackgroundImage = 'url(\'img/Carousel (' + backgroundImage + ').jpg\')'
       $('#home').css('background-image', newBackgroundImage);
-  }
+  }*/
 
   $(".socialMedia").mouseover(function()
   {
