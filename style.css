@@ -41,13 +41,29 @@ footer
 #home
 {
   background-color: rgb(35,4,64);
-  background-image: url("img/princeExp.jpg");
+  /*background-image: url(img/princeExp.jpg);*/
+  background-image: url('img/Carousel (0).jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: contain;
   height: 90%;
   height: calc(100% - 50px);
+}
+
+.buttons
+{
+  height: 100%;
+}
+
+#left
+{
+  height: 100%;
+}
+
+#right
+{
+  height: 100%;
 }
 
 .navbar-inverse
