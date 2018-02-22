@@ -23,6 +23,7 @@ function update()
     paddingString = padding + 'px';
   }
   $('#mycarousel').css("margin-top", padding);
+  $('#home').css("background-image", "none");
   //$('#mycarousel').animate({margintop: padding}, 'slow');
 
   //alterHeadingBackgrounds();
