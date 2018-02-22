@@ -47,6 +47,7 @@ footer
 .carousel
 {
   position: relative;
+  overflow: hidden;
 }
 
 .carousel .item
@@ -54,18 +55,11 @@ footer
     max-height: 100%;
 }
 
-.carousel .item img
-{
-    margin: 0 auto; /* Align slide image horizontally center */
-}
-
 .carousel-inner > .item > img
 {
-  /*width: 100%;
-  height: 90vh;
-  height: calc(100vh - 50px);*/
   max-height: 90vh;
   max-height: calc(100vh - 50px);
+  margin: 0 auto;
 }
 
 .navbar-inverse

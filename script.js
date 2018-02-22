@@ -1,10 +1,8 @@
 var velocity = 1;
 
-var backgroundImage = 0;
-var minBackgroundImage = 0;
-var maxBackgroundImage = 10;
-
 /*TODO Animate text as it appears on the screen*/
+
+$(window).bind('load', update);
 
 $(window).bind('scroll', update);
 
@@ -41,6 +39,8 @@ function update()
     });
   }*/
 
+  $('.itemimg').each(resizeImages);
+
   /*stick the navbar to the top of the window*/
   function stickNavBarToTop()
   {
@@ -52,6 +52,23 @@ function update()
     {
       $('nav:first').removeClass('sticky');
     }
+  }
+
+  function resizeImages()
+  {
+      if (winHeight > winWidth)
+      {
+        $(this).css("width", winWidth + "px");
+        $(this).css("height", "auto");
+        var padding = (winHeight - winWidth - 50) / 2;
+        $(this).css("margin-top", padding + "px");
+      }
+      else
+      {
+        $(this).css("height", winHeight + "px");
+        $(this).css("width", "auto");
+        $(this).css("margin-top", "0");
+      }
   }
 
   /*resize footer images*/
@@ -122,8 +139,7 @@ $(document).ready(function()
     {
       if (direction == 'left') $(this).carousel('next');
       if (direction == 'right') $(this).carousel('prev');
-    },
-    allowPageScroll:"vertical"
+    }
   });
 
   $(".socialMedia").mouseover(function()
