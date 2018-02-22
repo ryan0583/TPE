@@ -47,7 +47,7 @@ footer
 .carousel
 {
   position: relative;
-  overflow: hidden;
+  margin-top: calc(100% + 50px);
 }
 
 .carousel .item

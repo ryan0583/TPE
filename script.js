@@ -15,6 +15,16 @@ function update()
   var winWidth = $(window).width();
   var navBarTop = winHeight - 50;
 
+  var padding = 0;
+  var paddingString = '0px';
+  if (winHeight > winWidth)
+  {
+    padding = (winHeight - winWidth - 50) / 2;
+    paddingString = padding + 'px';
+  }
+  $('#mycarousel').css("margin-top", padding);
+  //$('#mycarousel').animate({margintop: padding}, 'slow');
+
   //alterHeadingBackgrounds();
 
   stickNavBarToTop();
@@ -60,16 +70,18 @@ function update()
       {
         $(this).css("width", winWidth + "px");
         $(this).css("height", "auto");
-        var padding = (winHeight - winWidth - 50) / 2;
-        $(this).css("margin-top", padding + "px");
+        //var padding = (winHeight - winWidth - 50) / 2;
+        //$(this).css("margin-top", padding + "px");
       }
       else
       {
         $(this).css("height", winHeight + "px");
         $(this).css("width", "auto");
-        $(this).css("margin-top", "0");
+        //$(this).css("margin-top", "0");
       }
   }
+
+  //$('#home').animate({margin-top: padding + 'px'}, 'slow');
 
   /*resize footer images*/
   /*function resizeFooterImages()
