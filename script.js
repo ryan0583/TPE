@@ -15,6 +15,7 @@ function update()
   var winWidth = $(window).width();
   var navBarTop = winHeight - 50;
 
+
   var padding = 0;
   var paddingString = '0px';
   if (winHeight > winWidth)
@@ -22,7 +23,8 @@ function update()
     padding = (winHeight - winWidth - 50) / 2;
     paddingString = padding + 'px';
   }
-  $('#mycarousel').css("margin-top", padding);
+  $('#mycarousel').css('margin-top', paddingString);
+  $('#mycarousel').removeClass('hide');
   $('#home').css("background-image", "none");
   //$('#mycarousel').animate({margintop: padding}, 'slow');
 
@@ -190,8 +192,12 @@ $(document).ready(function()
   {
     event.preventDefault();
     var id = $(this).attr('href');
-    var offset = $('' + id).offset();
-    var offsetTop = offset.top;
+    var offsetTop = 0;
+    if (id != '#home')
+    {
+      var offset = $('' + id).offset();
+      offsetTop = offset.top;
+    }
     $('html, body').animate({scrollTop: offsetTop}, 'slow');
   });
 });

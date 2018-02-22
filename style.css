@@ -47,7 +47,6 @@ footer
 .carousel
 {
   position: relative;
-  margin-top: calc(1000% + 50px);
 }
 
 .carousel .item
@@ -60,6 +59,11 @@ footer
   max-height: 90vh;
   max-height: calc(100vh - 50px);
   margin: 0 auto;
+}
+
+.carousel-control.left, .carousel-control.right
+{
+    background-image: none !important;
 }
 
 .navbar-inverse
