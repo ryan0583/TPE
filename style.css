@@ -31,11 +31,12 @@ footer
 {
   background-color: rgb(35,4,64);
   /*background-image: url(img/princeExp.jpg);*/
-  background-image: url('img/Carousel (0).jpg');
+  background-image: url('img/Carousel/Carousel (0).jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: contain;
+  background-size: auto calc(100% - 50px);
   height: 90%;
   height: calc(100% - 50px);
   /*z-index: -1 !important;*/
