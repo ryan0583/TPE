@@ -36,7 +36,6 @@ footer
   background-position: center;
   background-attachment: fixed;
   background-size: contain;
-  background-size: auto calc(100% - 50px);
   height: 90%;
   height: calc(100% - 50px);
   /*z-index: -1 !important;*/
