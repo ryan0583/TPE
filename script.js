@@ -1,203 +1,290 @@
-var velocity = 1;
-
-/*TODO Animate text as it appears on the screen*/
-
-$(window).bind('load', update);
-
-$(window).bind('scroll', update);
-
-$(window).bind('resize', update);
-
-function update()
+$(document).ready(function()
 {
-  var winTop = $(window).scrollTop();
-  var winHeight = $(window).height();
-  var winWidth = $(window).width();
-  var navBarTop = winHeight - 50;
+  var velocity = 1;
 
+  /*TODO Animate text as it appears on the screen*/
 
-  var padding = 0;
-  var paddingString = '0px';
-  if (winHeight > winWidth)
+  $(window).bind('load', update);
+
+  $(window).bind('scroll', update);
+
+  $(window).bind('resize', update);
+
+  function update()
   {
-    padding = (winHeight - winWidth - 50) / 2;
-    paddingString = padding + 'px';
-  }
-  $('#mycarousel').css('margin-top', paddingString);
-  $('#mycarousel').removeClass('hide');
-  $('#home').css("background-image", "none");
-  //$('#mycarousel').animate({margintop: padding}, 'slow');
+    var winTop = $(window).scrollTop();
+    var winHeight = $(window).height();
+    var winWidth = $(window).width();
+    var navBarTop = winHeight - 50;
 
-  //alterHeadingBackgrounds();
+    setupCarousel();
 
-  stickNavBarToTop();
+    scaleText();
 
-  //resizeFooterImages();
+    //$('#mycarousel').animate({margintop: padding}, 'slow');
 
-  /*move the background image of the section headers a bit, and resize them based on screen height*/
-  /*function alterHeadingBackgrounds()
-  {
-    $('.title-about').each(function()
+    //alterHeadingBackgrounds();
+
+    stickNavBarToTop();
+
+    scrollDates();
+
+    //resizeFooterImages();
+
+    /*move the background image of the section headers a bit, and resize them based on screen height*/
+    /*function alterHeadingBackgrounds()
     {
-      var thisOffset = $(this).offset();
-      var top = thisOffset.top;
-      var height = $(this).height();
-
-      var newPos = Math.round((top - 60 - winTop) * velocity);
-
-      //$(this).css('backgroundPosition', '100% ' + newPos +  'px');
-      //$(this).css('backgroundSize', 'auto ' + Math.round(0.2 * winHeight) + 'px');
-      //$(this).css('height', Math.round(0.3 * winHeight) + 'px');
-      //$(this).css('padding-top', Math.round(0.1 * winHeight) + 'px');
-    });
-  }*/
-
-  $('.itemimg').each(resizeImages);
-
-  /*stick the navbar to the top of the window*/
-  function stickNavBarToTop()
-  {
-    if (navBarTop <= winTop)
-    {
-        $('nav:first').addClass('sticky');
-    }
-    else
-    {
-      $('nav:first').removeClass('sticky');
-    }
-  }
-
-  function resizeImages()
-  {
-      if (winHeight > winWidth)
+      $('.title-about').each(function()
       {
-        $(this).css("width", winWidth + "px");
-        $(this).css("height", "auto");
-        //var padding = (winHeight - winWidth - 50) / 2;
-        //$(this).css("margin-top", padding + "px");
+        var thisOffset = $(this).offset();
+        var top = thisOffset.top;
+        var height = $(this).height();
+
+        var newPos = Math.round((top - 60 - winTop) * velocity);
+
+        //$(this).css('backgroundPosition', '100% ' + newPos +  'px');
+        //$(this).css('backgroundSize', 'auto ' + Math.round(0.2 * winHeight) + 'px');
+        //$(this).css('height', Math.round(0.3 * winHeight) + 'px');
+        //$(this).css('padding-top', Math.round(0.1 * winHeight) + 'px');
+      });
+    }*/
+
+    $('.itemimg').each(resizeImages);
+
+    function scaleText()
+    {
+      if (isBreakpoint('xs')
+        || isBreakpoint('sm'))
+      {
+        $('blockquote').each(function()
+        {
+          $(this).removeClass('blockquoteFont');
+        });
+
+        $('p').each(function()
+        {
+          $(this).removeClass('pFont');
+        });
+
+        $('.big').each(function()
+        {
+          $(this).css('font-size', '3vw');
+        });
       }
       else
       {
-        $(this).css("height", winHeight + "px");
-        $(this).css("width", "auto");
-        //$(this).css("margin-top", "0");
+        $('blockquote').each(function()
+        {
+          $(this).addClass('blockquoteFont');
+        });
+
+        $('p').each(function()
+        {
+          $(this).addClass('pFont');
+        });
+
+        $('.big').each(function()
+        {
+          $(this).css('font-size', '2.1vw');
+        });
       }
-  }
+    }
 
-  //$('#home').animate({margin-top: padding + 'px'}, 'slow');
-
-  /*resize footer images*/
-  /*function resizeFooterImages()
-  {
-    $(".imgFooter").each(function()
+    function isBreakpoint(alias)
     {
-      var minHeight = 30;
-      var maxHeight = 50;
+      return $('.device-' + alias).is(':visible');
+    }
 
-      var height = Math.round(winWidth * 0.05);
-      if (height < minHeight)
+    function setupCarousel()
+    {
+      var padding = 0;
+      var paddingString = '0px';
+      if (winHeight > winWidth)
       {
-        height = minHeight;
+        padding = (winHeight - winWidth - 50) / 2;
+        paddingString = padding + 'px';
       }
-      else if (height > maxHeight)
-      {
-        height = maxHeight;
-      }
+      $('#mycarousel').css('margin-top', paddingString);
+      $('#mycarousel').removeClass('hide');
+      $('#home').css("background-image", "none");
+    }
 
-      $(this).attr('width', height + 'px');
+    /*stick the navbar to the top of the window*/
+    function stickNavBarToTop()
+    {
+      if (navBarTop <= winTop)
+      {
+          $('nav:first').addClass('sticky');
+      }
+      else
+      {
+        $('nav:first').removeClass('sticky');
+      }
+    }
+
+    function scrollDates()
+    {
+      var mainTop = $('#main').offset().top;
+      if (mainTop <= winTop + 50)
+      {
+        var height = $('#scrollDates').height();
+        var mainHeight = $('#main').height();
+        var mainBottom = mainTop + mainHeight
+
+        if (mainBottom <= winTop + 50 + height)
+        {
+          $('#scrollDates').removeClass('stickyDates');
+
+          var fixed = mainBottom - height;
+
+          $('#scrollDates').addClass('absolute');
+        }
+        else
+        {
+          $('#scrollDates').removeClass('absolute');
+          $('#scrollDates').addClass('stickyDates');
+        }
+      }
+      else
+      {
+        $('#scrollDates').removeClass('stickyDates');
+        $('#scrollDates').removeClass('absolute');
+      }
+    }
+
+    function resizeImages()
+    {
+        if (winHeight > winWidth)
+        {
+          $(this).css("width", winWidth + "px");
+          $(this).css("height", "auto");
+          //var padding = (winHeight - winWidth - 50) / 2;
+          //$(this).css("margin-top", padding + "px");
+        }
+        else
+        {
+          $(this).css("height", winHeight + "px");
+          $(this).css("width", "auto");
+          //$(this).css("margin-top", "0");
+        }
+    }
+
+    //$('#home').animate({margin-top: padding + 'px'}, 'slow');
+
+    /*resize footer images*/
+    /*function resizeFooterImages()
+    {
+      $(".imgFooter").each(function()
+      {
+        var minHeight = 30;
+        var maxHeight = 50;
+
+        var height = Math.round(winWidth * 0.05);
+        if (height < minHeight)
+        {
+          height = minHeight;
+        }
+        else if (height > maxHeight)
+        {
+          height = maxHeight;
+        }
+
+        $(this).attr('width', height + 'px');
+      });
+    }*/
+  };
+
+
+
+
+    /*$('#home').on('swipeleft', imageDown);
+
+    $('#left').click(imageDown);
+
+    function imageDown()
+    {
+        backgroundImage--;
+        if (backgroundImage < minBackgroundImage)
+        {
+          backgroundImage = maxBackgroundImage;
+        }
+        var newBackgroundImage = 'url(\'img/Carousel (' + backgroundImage + ').jpg\')'
+        $('#home').css('background-image', newBackgroundImage);
+    }
+
+    $('#home').on('swiperight', imageUp);
+
+    $('#right').click(imageUp);
+
+    function imageUp()
+    {
+        backgroundImage++;
+        if (backgroundImage > maxBackgroundImage)
+        {
+          backgroundImage = minBackgroundImage;
+        }
+        var newBackgroundImage = 'url(\'img/Carousel (' + backgroundImage + ').jpg\')'
+        $('#home').css('background-image', newBackgroundImage);
+    }*/
+
+    /*$(".carousel-control").click(function()
+    {
+      var height = $('.carousel-inner').css('height');
+      $('.carousel-inner > .item > img').css('max-height', height);
+      $('.carousel-inner > .item > img').css('min-height', height);
+    });*/
+
+    $(".carousel").swipe(
+    {
+      swipe: function(event, direction, distance, duration, fingerCount, fingerData)
+      {
+        if (direction == 'left') $(this).carousel('next');
+        if (direction == 'right') $(this).carousel('prev');
+      }
     });
-  }*/
-};
 
-$(document).ready(function()
-{
-  /*$('#home').on('swipeleft', imageDown);
-
-  $('#left').click(imageDown);
-
-  function imageDown()
-  {
-      backgroundImage--;
-      if (backgroundImage < minBackgroundImage)
-      {
-        backgroundImage = maxBackgroundImage;
-      }
-      var newBackgroundImage = 'url(\'img/Carousel (' + backgroundImage + ').jpg\')'
-      $('#home').css('background-image', newBackgroundImage);
-  }
-
-  $('#home').on('swiperight', imageUp);
-
-  $('#right').click(imageUp);
-
-  function imageUp()
-  {
-      backgroundImage++;
-      if (backgroundImage > maxBackgroundImage)
-      {
-        backgroundImage = minBackgroundImage;
-      }
-      var newBackgroundImage = 'url(\'img/Carousel (' + backgroundImage + ').jpg\')'
-      $('#home').css('background-image', newBackgroundImage);
-  }*/
-
-  /*$(".carousel-control").click(function()
-  {
-    var height = $('.carousel-inner').css('height');
-    $('.carousel-inner > .item > img').css('max-height', height);
-    $('.carousel-inner > .item > img').css('min-height', height);
-  });*/
-
-  $(".carousel").swipe(
-  {
-    swipe: function(event, direction, distance, duration, fingerCount, fingerData)
+    $(".socialMedia").mouseover(function()
     {
-      if (direction == 'left') $(this).carousel('next');
-      if (direction == 'right') $(this).carousel('prev');
-    }
-  });
+      var id = $(this).attr('id');
+      $(this).attr('src', 'icons/' + id + ' color.svg');
+    });
 
-  $(".socialMedia").mouseover(function()
-  {
-    var id = $(this).attr('id');
-    $(this).attr('src', 'icons/' + id + ' color.svg');
-  });
-
-  $(".socialMedia").mouseout(function()
-  {
-    var id = $(this).attr('id');
-    $(this).attr('src', 'icons/' + id + ' black.svg');
-  });
-
-  $('.navbar-toggle').mouseup(function()
-  {
-    var expanded = $(this).attr('aria-expanded');
-    if (expanded == 'false')
+    $(".socialMedia").mouseout(function()
     {
-      var scrollBottom = $(window).scrollTop() + $(window).height();
-      var navbaroffset = $(this).offset();
-      var navbarTop = navbaroffset.top;
-      var popupHeight = 170;
-      var menuBottom = navbarTop + popupHeight;
-      if (menuBottom > scrollBottom)
+      var id = $(this).attr('id');
+      $(this).attr('src', 'icons/' + id + ' black.svg');
+    });
+
+    $('.navbar-toggle').mouseup(function()
+    {
+      var expanded = $(this).attr('aria-expanded');
+      if (expanded == 'false')
       {
-        var scrollPositon = menuBottom - $(window).height();
-        $('html, body').animate({scrollTop: scrollPositon}, 'slow');
+        var scrollBottom = $(window).scrollTop() + $(window).height();
+        var navbaroffset = $(this).offset();
+        var navbarTop = navbaroffset.top;
+        var popupHeight = 170;
+        var menuBottom = navbarTop + popupHeight;
+        if (menuBottom > scrollBottom)
+        {
+          var scrollPositon = menuBottom - $(window).height();
+          $('html, body').animate({scrollTop: scrollPositon}, 'slow');
+        }
       }
-    }
-  });
+    });
 
-  /*smooth scroll page links*/
-  $('.pageLink').click(function(event)
-  {
-    event.preventDefault();
-    var id = $(this).attr('href');
-    var offsetTop = 0;
-    if (id != '#home')
+    /*smooth scroll page links*/
+    $('.pageLink').click(function(event)
     {
-      var offset = $('' + id).offset();
-      offsetTop = offset.top;
-    }
-    $('html, body').animate({scrollTop: offsetTop}, 'slow');
-  });
+      event.preventDefault();
+      var id = $(this).attr('href');
+      var offsetTop = 0;
+      if (id != '#home')
+      {
+        var offset = $('' + id).offset();
+        offsetTop = offset.top;
+      }
+
+      $('html, body').animate({scrollTop: offsetTop}, 'slow');
+    });
 });
