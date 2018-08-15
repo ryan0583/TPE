@@ -246,13 +246,13 @@ $(document).ready(function()
     $(".socialMedia").mouseover(function()
     {
       var id = $(this).attr('id');
-      $(this).attr('src', 'icons/' + id + ' color.svg');
+      $(this).attr('src', 'img/' + id + 'color.png');
     });
 
     $(".socialMedia").mouseout(function()
     {
       var id = $(this).attr('id');
-      $(this).attr('src', 'icons/' + id + ' black.svg');
+      $(this).attr('src', 'img/' + id + 'black.png');
     });
 
     $('.navbar-toggle').mouseup(function()
