@@ -126,7 +126,7 @@ blockquote
   font-family: 'Spectral SC', serif;
 }
 
-p
+a.bigLink, p 
 {
   font-family: 'Spectral SC', serif;
   color: white;
