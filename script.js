@@ -2,8 +2,6 @@ $(document).ready(function()
 {
   var velocity = 1;
 
-  /*TODO Animate text as it appears on the screen*/
-
   $(window).bind('load', update);
 
   $(window).bind('scroll', update);
@@ -21,35 +19,9 @@ $(document).ready(function()
 
     scaleText();
 
-    //$('#mycarousel').animate({margintop: padding}, 'slow');
-
-    //alterHeadingBackgrounds();
-
     stickNavBarToTop();
 
     scrollDates();
-
-    //resizeFooterImages();
-
-    /*move the background image of the section headers a bit, and resize them based on screen height*/
-    /*function alterHeadingBackgrounds()
-    {
-      $('.title-about').each(function()
-      {
-        var thisOffset = $(this).offset();
-        var top = thisOffset.top;
-        var height = $(this).height();
-
-        var newPos = Math.round((top - 60 - winTop) * velocity);
-
-        //$(this).css('backgroundPosition', '100% ' + newPos +  'px');
-        //$(this).css('backgroundSize', 'auto ' + Math.round(0.2 * winHeight) + 'px');
-        //$(this).css('height', Math.round(0.3 * winHeight) + 'px');
-        //$(this).css('padding-top', Math.round(0.1 * winHeight) + 'px');
-      });
-    }*/
-
-    $('.itemimg').each(resizeImages);
 
     function scaleText()
     {
@@ -97,14 +69,6 @@ $(document).ready(function()
 
     function setupCarousel()
     {
-      var padding = 0;
-      var paddingString = '0px';
-      if (winHeight > winWidth)
-      {
-        padding = (winHeight - winWidth - 50) / 2;
-        paddingString = padding + 'px';
-      }
-      $('#mycarousel').css('margin-top', paddingString);
       $('#mycarousel').removeClass('hide');
       $('#home').css("background-image", "none");
     }
@@ -151,88 +115,7 @@ $(document).ready(function()
         $('#scrollDates').removeClass('absolute');
       }
     }
-
-    function resizeImages()
-    {
-        if (winHeight > winWidth)
-        {
-          $(this).css("width", winWidth + "px");
-          $(this).css("height", "auto");
-          //var padding = (winHeight - winWidth - 50) / 2;
-          //$(this).css("margin-top", padding + "px");
-        }
-        else
-        {
-          $(this).css("height", winHeight + "px");
-          $(this).css("width", "auto");
-          //$(this).css("margin-top", "0");
-        }
-    }
-
-    //$('#home').animate({margin-top: padding + 'px'}, 'slow');
-
-    /*resize footer images*/
-    /*function resizeFooterImages()
-    {
-      $(".imgFooter").each(function()
-      {
-        var minHeight = 30;
-        var maxHeight = 50;
-
-        var height = Math.round(winWidth * 0.05);
-        if (height < minHeight)
-        {
-          height = minHeight;
-        }
-        else if (height > maxHeight)
-        {
-          height = maxHeight;
-        }
-
-        $(this).attr('width', height + 'px');
-      });
-    }*/
   };
-
-
-
-
-    /*$('#home').on('swipeleft', imageDown);
-
-    $('#left').click(imageDown);
-
-    function imageDown()
-    {
-        backgroundImage--;
-        if (backgroundImage < minBackgroundImage)
-        {
-          backgroundImage = maxBackgroundImage;
-        }
-        var newBackgroundImage = 'url(\'img/Carousel (' + backgroundImage + ').jpg\')'
-        $('#home').css('background-image', newBackgroundImage);
-    }
-
-    $('#home').on('swiperight', imageUp);
-
-    $('#right').click(imageUp);
-
-    function imageUp()
-    {
-        backgroundImage++;
-        if (backgroundImage > maxBackgroundImage)
-        {
-          backgroundImage = minBackgroundImage;
-        }
-        var newBackgroundImage = 'url(\'img/Carousel (' + backgroundImage + ').jpg\')'
-        $('#home').css('background-image', newBackgroundImage);
-    }*/
-
-    /*$(".carousel-control").click(function()
-    {
-      var height = $('.carousel-inner').css('height');
-      $('.carousel-inner > .item > img').css('max-height', height);
-      $('.carousel-inner > .item > img').css('min-height', height);
-    });*/
 
     $(".carousel").swipe(
     {
